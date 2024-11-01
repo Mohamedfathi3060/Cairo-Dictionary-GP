@@ -1,2 +1,2 @@
-# Graduation_Project_Frontend
-Frontend Files for the Graduation Project 
+# Graduation_Project
+## Working on the data entry website
