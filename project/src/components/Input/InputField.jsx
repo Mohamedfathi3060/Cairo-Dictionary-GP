@@ -60,6 +60,7 @@ function InputField({
         variant={variant}
         type={type}
         sx={{
+          width: "100%",
           ...(variant === "filled"
             ? {
                 "& .MuiFilledInput-root": {
@@ -216,7 +217,7 @@ function InputField({
       <FormControl
         variant={variant}
         sx={{
-          m: 1,
+          width: "100%",
           minWidth: 120,
           "& .MuiInputBase-root": {
             "& ::before": {

@@ -64,7 +64,6 @@ function Section4() {
           </Grid>
         </Grid>
       </Box>
-      <DividerComponent />
     </>
   );
 }

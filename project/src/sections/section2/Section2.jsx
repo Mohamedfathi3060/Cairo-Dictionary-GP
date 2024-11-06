@@ -13,18 +13,17 @@ function Section2() {
         </Grid>
         <Grid size={4} sx={{ marginRight: "1px" }}>
           {" "}
-          <InputField label={"الفئة الكلامية"} selected={true}></InputField>
+          <InputField label={"الفئة الكلامية"} select={true}></InputField>
         </Grid>
         <Grid size={4}>
           {" "}
-          <InputField label={"الصيغة الصرفية"} selected={true}></InputField>
+          <InputField label={"الصيغة الصرفية"} select={true}></InputField>
         </Grid>
         <Grid size={4}>
           {" "}
-          <InputField label={"المستوى اللغوي"} selected={true}></InputField>
+          <InputField label={"المستوى اللغوي"} select={true}></InputField>
         </Grid>
       </Grid>
-      <DividerComponent />
     </>
   );
 }
