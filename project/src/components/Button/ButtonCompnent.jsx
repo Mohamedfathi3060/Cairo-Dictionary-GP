@@ -2,7 +2,9 @@ import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 
 function ButtonCompnent({ text = "فارغ", rounded = false, icon = false }) {
-  const roundedStyle = rounded ? { borderRadius: "20px" } : {};
+  const roundedStyle = rounded
+    ? { borderRadius: "20px" }
+    : { borderRadius: "6px" };
   return (
     <Button
       variant="contained"

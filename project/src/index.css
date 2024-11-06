@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  margin: 10px;
+  margin: 0px;
   font-family: "El Messiri", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
