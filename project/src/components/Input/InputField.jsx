@@ -142,11 +142,12 @@ function InputField({
       <TextField
         id="filled-textarea"
         label={label}
+        label={label}
         multiline
         rows={6}
         variant={variant}
         sx={{
-          width: "350px",
+          width: "100%",
           "& .MuiFilledInput-root": {
             "&:after": {
               borderBottomColor: "#255080",
