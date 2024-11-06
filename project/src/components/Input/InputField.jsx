@@ -142,7 +142,6 @@ function InputField({
       <TextField
         id="filled-textarea"
         label={label}
-        label={label}
         multiline
         rows={6}
         variant={variant}

@@ -1,9 +1,12 @@
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, Grid2, ThemeProvider } from "@mui/material";
 import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import Login from "./pages/Login";
+import Section2 from "./sections/section2/Section2";
+import Section4 from "./sections/Section4/Section4";
+import LastSection from "./sections/lastSection/LastSection";
 import { useState } from "react";
 function App() {
   const theme = (outerTheme) =>
@@ -39,7 +42,14 @@ function App() {
       <VoiceInput /> */}
       <CacheProvider value={cacheRtl}>
         <ThemeProvider theme={theme}>
-          <Login />
+          {/* <Login /> */}
+          <Grid2 container>
+            <Grid2 mx={4} width={"100%"}>
+              <Section2 />
+              <Section4 />
+              <LastSection />
+            </Grid2>
+          </Grid2>
         </ThemeProvider>
       </CacheProvider>
     </>
