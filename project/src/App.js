@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./index.css";
+import ButtonCompnent from "./components/Button/ButtonCompnent";
+import DividerComponent from "./components/Divider/DividerComponent";
+import InputField from "./components/Input/InputField";
+import VoiceInput from "./components/Voise";
+import { Stack } from "@mui/material";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ButtonCompnent text={"المدونة"} icon={true} />
+
+      <DividerComponent />
+      <Stack flexDirection={"row"}>
+        <InputField text={true} />
+        <InputField selected={true} />
+        <InputField multiLine={true} />
+      </Stack>
+
+      <VoiceInput />
+    </>
   );
 }
 
