@@ -5,15 +5,20 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useState } from "react";
 
-function InputField({ text = false, multiLine = false, selected = false }) {
+function InputField({
+  text = false,
+  label = "",
+  multiLine = false,
+  selected = false,
+}) {
   const [option, setOption] = useState("");
   const styled = option ? "none" : "block";
   if (text) {
     return (
       <TextField
         id="filled-basic"
-        label="ادخل"
-        variant="outlined"
+        label={label}
+        variant="filled"
         InputLabelProps={{
           sx: {
             right: "25px", // Align label to the right
@@ -39,6 +44,7 @@ function InputField({ text = false, multiLine = false, selected = false }) {
               color: "#255080",
             },
           },
+          width: "100%",
         }}
       />
     );
@@ -46,7 +52,7 @@ function InputField({ text = false, multiLine = false, selected = false }) {
     return (
       <TextField
         id="filled-textarea"
-        label="ادخل"
+        label={label}
         multiline
         variant="filled"
         rows={6}
@@ -67,7 +73,7 @@ function InputField({ text = false, multiLine = false, selected = false }) {
           },
         }}
         sx={{
-          width: "350px",
+          width: "100%",
           "& .MuiFilledInput-root": {
             "&:after": {
               borderBottomColor: "#255080",
@@ -97,8 +103,7 @@ function InputField({ text = false, multiLine = false, selected = false }) {
             left: 0, // Moves the arrow to the left
             right: "unset", // Unsets the default right position
           },
-          m: 1,
-          minWidth: 150,
+          width: "100%",
         }}
       >
         <InputLabel
@@ -120,7 +125,7 @@ function InputField({ text = false, multiLine = false, selected = false }) {
           }}
           style={{ display: styled }}
         >
-          اختار
+          {label}
         </InputLabel>
         <Select
           labelId="demo-simple-select-filled-label"

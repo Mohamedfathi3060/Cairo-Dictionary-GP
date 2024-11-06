@@ -6,7 +6,7 @@ function DividerComponent({}) {
     // <Divider className="divider">
     //   <img src={img} alt="" style={{ width: "60px", height: "30px" }} />
     // </Divider>
-    <div>
+    <div className={styles.div}>
       <hr />
       <span className={styles.span}>
         <img src={img} alt="" style={{ width: "100px", height: "60px" }} />

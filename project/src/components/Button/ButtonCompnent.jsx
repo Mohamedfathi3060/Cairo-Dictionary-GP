@@ -10,6 +10,7 @@ function ButtonCompnent({ text = "فارغ", rounded = false, icon = false }) {
         background: "linear-gradient(to right, #0F2D4D, #2369B3)",
         fontSize: "16px",
         fontFamily: "El Messiri",
+        width: "100%",
       }}
       startIcon={icon && <AddIcon sx={{ marginLeft: "10px" }} />}
       style={roundedStyle}

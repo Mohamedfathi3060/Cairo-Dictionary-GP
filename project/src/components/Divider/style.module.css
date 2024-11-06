@@ -1,5 +1,6 @@
-div {
+.div {
   position: relative;
+  margin-top: 80px;
 }
 .span {
   position: absolute;
