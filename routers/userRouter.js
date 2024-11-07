@@ -24,28 +24,18 @@ router.post("/login", async (req, res) => {
   try {
     const { code, password } = req.body;
     if (!code || !password) {
-      res.json({
-        status: "error",
-        message: "code and password is required to login...!",
-      });
+      throw err();
     }
     let user = await userModel.findOne({ code }).exec();
 
     if (!user) {
-      res.json({
-        status: "error",
-        message: "اسم المستخدم او كلمة المرور غير صحيحة",
-      });
+      throw err();
     }
     // if (!user.comparePassword(password)) {
     if (password != user.password) {
-      res.json({
-        status: "error",
-        message: "اسم المستخدم او كلمة المرور غير صحيحة",
-      });
+      throw err();
     }
     await user.populate("words", "text").execPopulate();
-
     let token = getToken(code);
 
     res.json({
@@ -54,8 +44,11 @@ router.post("/login", async (req, res) => {
       code: user.code,
       committee: user.committee,
     });
-  } catch (error) {
-    res.json(err);
+  } catch (err) {
+    res.status(401).json({
+      status: "error",
+      message: "اسم المستخدم او كلمة المرور غير صحيحة",
+    });
   }
 });
 
