@@ -19,6 +19,6 @@ app.use("/api/v1/Auth", userRouter);
 // getWordData ID => {}
 // postWordData => save
 
-app.listen(7070, () => {
+app.listen(process.env.PORT, () => {
   console.log("server is waiting for requests");
 });
