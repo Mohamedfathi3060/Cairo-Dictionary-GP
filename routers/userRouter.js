@@ -35,7 +35,8 @@ router.post("/login", async (req, res) => {
     if (password != user.password) {
       throw err();
     }
-    await user.populate("words", "text").execPopulate();
+    await user.populate("words", "text");
+
     let token = getToken(code);
 
     res.json({

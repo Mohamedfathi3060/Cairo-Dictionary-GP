@@ -4,10 +4,7 @@ const { Schema } = mongoose;
 // coneect to DB
 mongoose
   .connect(process.env.DATABASE, {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
+    serverApi: { version: "1", strict: true, deprecationErrors: true },
   })
   .then((con) => {
     console.log(`DB Connected Succssfully`);
