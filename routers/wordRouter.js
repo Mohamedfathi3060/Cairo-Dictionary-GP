@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const wordModel = require("../Models/wordModel");
+const { checkAuth } = require("../controllers/checkAuth");
+
+router.use(checkAuth);
 
 router.get("/:ID", async (req, res) => {
   try {

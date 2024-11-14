@@ -1,24 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userModel = require("../Models/userModel");
-const jwt = require("jsonwebtoken");
-
-getToken = function (code) {
-  const secret = process.env.JWT_SECRET_KEY;
-  let token = jwt.sign(
-    {
-      code,
-      //   committee,
-      //   username,
-      //   type,
-    },
-    secret,
-    {
-      expiresIn: "36h",
-    }
-  );
-  return token;
-};
+const { getToken, checkAuth } = require("../controllers/checkAuth");
 
 router.post("/login", async (req, res) => {
   try {
@@ -26,7 +9,11 @@ router.post("/login", async (req, res) => {
     if (!code || !password) {
       throw err();
     }
-    let user = await userModel.findOne({ code }).exec();
+    let user = await userModel.findOne({ code }).populate({
+      path: "words",
+      select:
+        "text state  semantic_info.index semantic_info.meaning.text semantic_info.meaning.completed semantic_info._id",
+    });
 
     if (!user) {
       throw err();
@@ -35,7 +22,6 @@ router.post("/login", async (req, res) => {
     if (password != user.password) {
       throw err();
     }
-    await user.populate("words", "text");
 
     let token = getToken(code);
 
@@ -49,6 +35,28 @@ router.post("/login", async (req, res) => {
     res.status(401).json({
       status: "error",
       message: "اسم المستخدم او كلمة المرور غير صحيحة",
+    });
+  }
+});
+
+router.use(checkAuth);
+
+router.patch("/time", async (req, res) => {
+  try {
+    time_spent = req.body.time || 0;
+    const user = await userModel.findOneAndUpdate(
+      { code: req.user },
+      {
+        $inc: { time_spent: time_spent },
+      }
+    );
+    res.json({
+      message: "Time Updated",
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "error",
+      message: error,
     });
   }
 });

@@ -18,27 +18,9 @@ const diacritics = new Schema({
 
 const morphological_info = new Schema({
   root: String,
-  word_class: {
-    type: String,
-    enum: {
-      values: ["جمع تكسير", "مفرد", "مثني"],
-      message: "word_class is enums",
-    },
-  },
-  morphological_form: {
-    type: String,
-    enum: {
-      values: ["عام"],
-      message: "morphological_form is enums",
-    },
-  },
-  linguistic_level: {
-    type: String,
-    enum: {
-      values: ["فصيح", "عامي"],
-      message: "linguistic_level is enums",
-    },
-  },
+  // word_class: String,
+  morphological_form: String,
+  linguistic_level: String,
 });
 
 const collocate = new Schema({
@@ -65,14 +47,18 @@ const meaning = new Schema({
       source: String,
     },
   ],
+  translation: String,
 });
 
 const semantic_info = new Schema({
-  // TODO  => Set enum
-  Semantic_fields: [String],
+  semantic_fields: [String],
   meaning: meaning,
   collocates: [collocate],
-  completed: Boolean,
+  completed: {
+    type: Boolean,
+    default: false,
+  },
+  index: Number,
 });
 
 const Word = new Schema({

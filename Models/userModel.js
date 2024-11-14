@@ -41,7 +41,9 @@ const user = new Schema({
       ref: "Word",
     },
   ],
+  time_spent: Number,
 });
+// time spent
 
 user.methods.comparePassword = async (_password) => {
   console.log(`my pass is => ${this.password}`);

@@ -1,1 +1,86 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Launch</title>
+    <style>
+      /* Basic reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Full-screen setup */
+      body,
+      html {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: linear-gradient(45deg, #4a90e2, #50c878);
+        color: #fff;
+      }
+
+      /* Main message styling */
+      .launch-message {
+        width: 80%;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out, scaleUp 2s ease-in-out;
+      }
+
+      /* "Website is now launched" text */
+      h1 {
+        font-size: 3em;
+        animation: textGlow 1.5s ease-in-out infinite alternate;
+      }
+
+      /* "Thank you for visiting" text */
+      p {
+        font-size: 1.5em;
+        margin-top: 20px;
+        opacity: 0.8;
+        animation: fadeIn 4s ease-in-out forwards 1s;
+      }
+
+      /* Keyframe animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scaleUp {
+        from {
+          transform: scale(0.8);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes textGlow {
+        from {
+          text-shadow: 0 0 10px #fff, 0 0 20px #50c878, 0 0 30px #50c878;
+        }
+        to {
+          text-shadow: 0 0 20px #fff, 0 0 30px #4a90e2, 0 0 40px #4a90e2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="launch-message">
+      <h1>Website is now launched!</h1>
+      <p>Thank you for visiting.</p>
+    </div>
+  </body>
+</html>
