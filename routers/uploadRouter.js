@@ -18,11 +18,11 @@ const storageImages = multer.diskStorage({
 });
 const uploadImg = multer({ storage: storageImages });
 
-router.post("/image", uploadImg.single("img"), (req, res) => {
+router.post("/image", uploadImg.single("image"), (req, res) => {
   if (req.file) {
     res.json({
       message: "Image uploaded successfully",
-      filePath: "/public/uploads/images/" + req.file.filename,
+      filePath: "/uploads/images/" + req.file.filename,
     });
   } else {
     res.status(400).json({ message: "No file uploaded" });
@@ -49,7 +49,7 @@ router.post("/record", uploadRecord.single("record"), (req, res) => {
   if (req.file) {
     res.json({
       message: "Record uploaded successfully",
-      filePath: "/public/uploads/images/" + req.file.filename,
+      filePath: "/uploads/records/" + req.file.filename,
     });
   } else {
     res.status(400).json({ message: "No file uploaded" });

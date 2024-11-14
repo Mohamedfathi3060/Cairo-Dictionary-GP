@@ -2,13 +2,20 @@ const jwt = require("jsonwebtoken");
 
 exports.checkAuth = (req, res, next) => {
   try {
-    // read token
-    token = req.body.token;
-    if (!token) {
+    const authHeader = req.headers["authorization"];
+    if (authHeader && authHeader.startsWith("Bearer ")) {
+      // Extract the token
+      const token = authHeader.split(" ")[1];
+      req.token = token; // Save it to request for later use
+    } else {
+      req.token = null; // Set to null if no valid bearer token is found
+    }
+
+    if (!req.token) {
       throw err();
     }
     // validate token
-    const data = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const data = jwt.verify(req.token, process.env.JWT_SECRET_KEY);
     // if VALIDATED
     if (!data) {
       throw err();
