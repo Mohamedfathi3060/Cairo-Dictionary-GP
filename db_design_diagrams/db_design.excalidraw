@@ -569,11 +569,11 @@
       "index": "b6p",
       "roundness": null,
       "seed": 2068718053,
-      "version": 900,
-      "versionNonce": 882602187,
+      "version": 935,
+      "versionNonce": 681283621,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1732847722990,
+      "updated": 1732851975221,
       "link": null,
       "locked": false,
       "points": [
@@ -633,11 +633,11 @@
       "index": "b6r",
       "roundness": null,
       "seed": 476516453,
-      "version": 1033,
-      "versionNonce": 1950917259,
+      "version": 1034,
+      "versionNonce": 1832589765,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1732847872821,
+      "updated": 1732851961861,
       "link": null,
       "locked": false,
       "points": [
@@ -955,8 +955,8 @@
         "type": 3
       },
       "seed": 954470571,
-      "version": 166,
-      "versionNonce": 1134748549,
+      "version": 168,
+      "versionNonce": 1972193227,
       "isDeleted": false,
       "boundElements": [
         {
@@ -968,7 +968,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1732847883928,
+      "updated": 1732851961860,
       "link": null,
       "locked": false
     },
@@ -978,7 +978,7 @@
       "x": -2579.051451247108,
       "y": -3813.6406727099156,
       "width": 429.02938697825465,
-      "height": 290.7808091127633,
+      "height": 271.3317759120484,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -994,8 +994,8 @@
         "type": 3
       },
       "seed": 1309811179,
-      "version": 442,
-      "versionNonce": 1829340741,
+      "version": 476,
+      "versionNonce": 996929733,
       "isDeleted": false,
       "boundElements": [
         {
@@ -1003,7 +1003,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1732847887512,
+      "updated": 1732851975221,
       "link": null,
       "locked": false
     },
@@ -1859,9 +1859,9 @@
       "id": "BjexbsNMi3gPhH8FrvPsW",
       "type": "text",
       "x": -2554.153632757334,
-      "y": -3803.92083684183,
+      "y": -3806.338170088139,
       "width": 341.4596862792969,
-      "height": 275,
+      "height": 250,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -1875,8 +1875,8 @@
       "index": "b7U",
       "roundness": null,
       "seed": 1916324161,
-      "version": 722,
-      "versionNonce": 287907691,
+      "version": 731,
+      "versionNonce": 1795837771,
       "isDeleted": false,
       "boundElements": [
         {
@@ -1884,16 +1884,16 @@
           "type": "arrow"
         }
       ],
-      "updated": 1732847722990,
+      "updated": 1732851971368,
       "link": null,
       "locked": false,
-      "text": "diacritic {\n    word_with_diacritics: string,\n    other_forms: [diacritics]\n    phonetic_writing: string,\n    derivational_forms: [string]\n    morphological_balance: \n    root: string\n    morphological_form\n    linguistic_level\n    pronounciation: blob(audio),\n}",
+      "text": "diacritic {\n    word_with_diacritics: string,\n    other_forms: [diacritics]\n    phonetic_writing: string,\n    derivational_forms: [string]\n    morphological_balance: \n    root: string\n    linguistic_level\n    pronounciation: blob(audio),\n}",
       "fontSize": 20,
       "fontFamily": 5,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "diacritic {\n    word_with_diacritics: string,\n    other_forms: [diacritics]\n    phonetic_writing: string,\n    derivational_forms: [string]\n    morphological_balance: \n    root: string\n    morphological_form\n    linguistic_level\n    pronounciation: blob(audio),\n}",
+      "originalText": "diacritic {\n    word_with_diacritics: string,\n    other_forms: [diacritics]\n    phonetic_writing: string,\n    derivational_forms: [string]\n    morphological_balance: \n    root: string\n    linguistic_level\n    pronounciation: blob(audio),\n}",
       "autoResize": true,
       "lineHeight": 1.25
     },
