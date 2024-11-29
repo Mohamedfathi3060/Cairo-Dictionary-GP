@@ -12,7 +12,7 @@ mongoose
 
 const diacritics = new Schema({
     word_with_diacritics: String,
-    other_forms: [diacritics],
+    // other_forms: [diacritics],
     phonetic_writing: String,
     pronounciation: String,
     derivational_forms: [String],
@@ -59,13 +59,12 @@ const semantic_info = new Schema({
     index: Number,
 });
 
-const Word = new Schema({
+const Verb = new Schema({
     text: {
         type: String,
         required: true,
     },
     diacritics: [diacritics],
-    morphological_info: morphological_info,
     semantic_info: [semantic_info],
     state: {
         type: String,
@@ -77,6 +76,6 @@ const Word = new Schema({
     notes: String,
 });
 
-const WordModel = new mongoose.model("Word", Word);
-module.exports = WordModel;
+const VerbModel = new mongoose.model("Verb", Verb);
+module.exports = VerbModel;
 

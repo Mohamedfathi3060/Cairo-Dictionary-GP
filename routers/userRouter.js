@@ -28,6 +28,7 @@ router.post("/login", async (req, res) => {
     res.json({
       token,
       assigned_words: user.words,
+      assigned_verbs: user.verbs,
       code: user.code,
       committee: user.committee,
     });

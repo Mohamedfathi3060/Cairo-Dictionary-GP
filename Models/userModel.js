@@ -41,6 +41,12 @@ const user = new Schema({
       ref: "Word",
     },
   ],
+  verbs: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Verb",
+    },
+  ],
   time_spent: Number,
 });
 // time spent
