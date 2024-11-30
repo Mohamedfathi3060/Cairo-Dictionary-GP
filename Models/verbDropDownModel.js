@@ -16,3 +16,23 @@ const VerbDropDownModel = new mongoose.model("verbDropDown", verbDropDown);
 module.exports = VerbDropDownModel;
 
 
+/* TODO
+    1- Add verb_morphological_balance (الميزان الصرفي) drop down to the DB 
+    فَعَل
+    فعُل
+    فَعل
+    أَفَعَلَ
+    انفَعَلَ
+    تفاَعل
+    تفعَّل 
+    استَفْعل
+    فَعَّلَ
+
+    2- Add verb_linguistic_level (المستوي اللغوي) drop down to the DB 
+
+    تراثي 
+    معاصر
+    دخيل 
+    معرب
+    منحوت
+    */
