@@ -8,6 +8,7 @@ const wordRouter = require("./routers/wordRouter");
 const verbRouter = require("./routers/verbRouter");
 const userRouter = require("./routers/userRouter");
 const dropDownRouter = require("./routers/dropDownRouter");
+const verbDropDownRouter = require("./routers/verbDropDownRouter");
 const uploadRouter = require("./routers/uploadRouter");
 const VerbModel = require("./Models/verbModel");
 
@@ -21,6 +22,7 @@ app.use("/api/v1/Word", wordRouter);
 app.use("/api/v1/Verb", verbRouter);
 app.use("/api/v1/Auth", userRouter);
 app.use("/api/v1/dropdown", dropDownRouter);
+app.use("/api/v1/verbDropDown", verbDropDownRouter);
 app.use("/api/v1/upload", uploadRouter);
 
 app.listen(process.env.PORT, () => {
