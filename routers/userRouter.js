@@ -20,7 +20,7 @@ router.post("/login", async (req, res) => {
         path: "functionalWords",
         select:
           /*TODO select only needed fields */
-          "text state syntactic_collocation contextual_indicators linguistic_function diacritics",
+          "text state",
       })
       .populate({
         path: "verbs",
