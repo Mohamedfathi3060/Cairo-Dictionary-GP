@@ -8,6 +8,7 @@ const wordRouter = require("./routers/wordRouter");
 const userRouter = require("./routers/userRouter");
 const dropDownRouter = require("./routers/dropDownRouter");
 const uploadRouter = require("./routers/uploadRouter");
+const functionalWordRouter = require("./routers/functionalWordRouter"); 
 
 app.use(cors());
 
@@ -18,7 +19,9 @@ app.use("/api/v1/Word", wordRouter);
 app.use("/api/v1/Auth", userRouter);
 app.use("/api/v1/dropdown", dropDownRouter);
 app.use("/api/v1/upload", uploadRouter);
+app.use("/api/v1/FunctionalWord", functionalWordRouter);
 
 app.listen(process.env.PORT, () => {
   console.log("server is waiting for requests");
 });
+
