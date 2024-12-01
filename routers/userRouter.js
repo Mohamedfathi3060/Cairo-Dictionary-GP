@@ -36,6 +36,7 @@ router.post("/login", async (req, res) => {
     res.json({
       token,
       assigned_words: user.words,
+      assigned_verbs: user.verbs,
       assigned_functional_words: user.functionalWords,
       code: user.code,
       committee: user.committee,

@@ -41,6 +41,12 @@ const user = new Schema({
       ref: "Word",
     },
   ],
+  verbs: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Verb",
+    },
+  ],
   functionalWords: [
     {
       type: mongoose.Schema.ObjectId,
