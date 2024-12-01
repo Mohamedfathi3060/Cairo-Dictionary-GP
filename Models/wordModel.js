@@ -49,6 +49,7 @@ const semantic_info = new Schema({
     type: Boolean,
     default: false,
   },
+  /* TODO make it Unique to prevent duplicate Index*/
   index: Number,
 });
 
@@ -56,6 +57,7 @@ const Word = new Schema({
   text: {
     type: String,
     required: true,
+    unique: true,
   },
   diacritics: [diacritics],
   morphological_info: morphological_info,

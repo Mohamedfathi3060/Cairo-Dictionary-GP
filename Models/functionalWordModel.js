@@ -58,7 +58,11 @@ const syntactic_collocation = new Schema({
 });
 
 const functionalWord = new Schema({
-  text: String,
+  text: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   diacritics: [diacritics],
   linguistic_function: linguistic_function,
   contextual_indicators: contextual_indicators,

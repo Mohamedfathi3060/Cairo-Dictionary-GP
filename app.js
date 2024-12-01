@@ -23,13 +23,16 @@ app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
 
+app.use("/api/v1/Auth", userRouter);
+
 app.use("/api/v1/Word", wordRouter);
 app.use("/api/v1/Verb", verbRouter);
-app.use("/api/v1/Auth", userRouter);
+app.use("/api/v1/FunctionalWord", functionalWordRouter);
+
 app.use("/api/v1/dropdown", dropDownRouter);
 app.use("/api/v1/verbDropDown", verbDropDownRouter);
+
 app.use("/api/v1/upload", uploadRouter);
-app.use("/api/v1/FunctionalWord", functionalWordRouter);
 
 app.listen(process.env.PORT, () => {
   console.log("server is waiting for requests");

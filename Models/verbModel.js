@@ -1,81 +1,73 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-// coneect to DB
-mongoose
-    .connect(process.env.DATABASE, {
-        serverApi: { version: "1", strict: true, deprecationErrors: true },
-    })
-    .then((con) => {
-        console.log(`DB Connected Succssfully`);
-    });
-
 const diacritics = new Schema({
-    word_with_diacritics: String,
-    // other_forms: [diacritics],
-    phonetic_writing: String,
-    pronounciation: String,
-    derivational_forms: [String],
-    morphological_balance: String,
-    root: String,
-    linguistic_level: String
+  word_with_diacritics: String,
+  // other_forms: [diacritics],
+  phonetic_writing: String,
+  pronounciation: String,
+  derivational_forms: [String],
+  morphological_balance: String,
+  root: String,
+  linguistic_level: String,
 });
 
 const collocate = new Schema({
-    collocate_text: String,
-    meaning: String,
-    example: [
-        {
-            text: String,
-            source: String,
-        },
-    ],
+  collocate_text: String,
+  meaning: String,
+  example: [
+    {
+      text: String,
+      source: String,
+    },
+  ],
 });
 
 const meaning = new Schema({
-    text: String,
-    image: {
-        url: String,
-        description: String,
-        source: String,
+  text: String,
+  image: {
+    url: String,
+    description: String,
+    source: String,
+  },
+  example: [
+    {
+      text: String,
+      source: String,
     },
-    example: [
-        {
-            text: String,
-            source: String,
-        },
-    ],
-    translation: String,
+  ],
+  translation: String,
 });
 
 const semantic_info = new Schema({
-    semantic_fields: [String],
-    meaning: meaning,
-    collocates: [collocate],
-    completed: {
-        type: Boolean,
-        default: false,
-    },
-    index: Number,
+  semantic_fields: [String],
+  meaning: meaning,
+  collocates: [collocate],
+  completed: {
+    type: Boolean,
+    default: false,
+  },
+  /* TODO make it Unique to prevent duplicate Index*/
+  index: Number,
 });
 
 const Verb = new Schema({
-    text: {
-        type: String,
-        required: true,
+  text: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  diacritics: [diacritics],
+  semantic_info: [semantic_info],
+  state: {
+    type: String,
+    enum: {
+      values: ["قيد التحرير", "قيد المراجعة"],
+      message: "حالة البطاقة يجب ان تكون قيد التحرير او المراجعة",
     },
-    diacritics: [diacritics],
-    semantic_info: [semantic_info],
-    state: {
-        type: String,
-        enum: {
-            values: ["قيد التحرير", "قيد المراجعة"],
-            message: "حالة البطاقة يجب ان تكون قيد التحرير او المراجعة",
-        },
-    },
-    notes: String,
+  },
+  notes: String,
 });
 
 const VerbModel = new mongoose.model("Verb", Verb);
 module.exports = VerbModel;
-

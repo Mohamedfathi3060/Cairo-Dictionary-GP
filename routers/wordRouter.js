@@ -69,12 +69,15 @@ router.put("/:ID", async (req, res) => {
         returnDocument: "after",
       }
     );
+    if (!newWord) {
+      throw err();
+    }
     res.json({
       data: newWord,
     });
   } catch (err) {
     res.json({
-      error: err.message,
+      error: "Word not Exist",
     });
   }
 });

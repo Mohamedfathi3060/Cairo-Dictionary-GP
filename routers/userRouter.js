@@ -21,6 +21,12 @@ router.post("/login", async (req, res) => {
         select:
           /*TODO select only needed fields */
           "text state syntactic_collocation contextual_indicators linguistic_function diacritics",
+      })
+      .populate({
+        path: "verbs",
+        select:
+          /*TODO select only needed fields */
+          "text state  semantic_info.index semantic_info.meaning.text semantic_info.meaning.completed semantic_info._id",
       });
 
     if (!user) {
