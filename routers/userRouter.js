@@ -9,11 +9,19 @@ router.post("/login", async (req, res) => {
     if (!code || !password) {
       throw err();
     }
-    let user = await userModel.findOne({ code }).populate({
-      path: "words",
-      select:
-        "text state  semantic_info.index semantic_info.meaning.text semantic_info.meaning.completed semantic_info._id",
-    });
+    let user = await userModel
+      .findOne({ code })
+      .populate({
+        path: "words",
+        select:
+          "text state  semantic_info.index semantic_info.meaning.text semantic_info.meaning.completed semantic_info._id",
+      })
+      .populate({
+        path: "functionalWords",
+        select:
+          /*TODO select only needed fields */
+          "text state syntactic_collocation contextual_indicators linguistic_function diacritics",
+      });
 
     if (!user) {
       throw err();
@@ -28,8 +36,10 @@ router.post("/login", async (req, res) => {
     res.json({
       token,
       assigned_words: user.words,
+      assigned_functional_words: user.functionalWords,
       code: user.code,
       committee: user.committee,
+      time_spent: user.time_spent,
     });
   } catch (err) {
     res.status(401).json({

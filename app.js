@@ -1,14 +1,18 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
-const cors = require("cors");
 
+const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
+
+// connect to DB
+require("./Models/DB_connection");
+
+const cors = require("cors");
 const wordRouter = require("./routers/wordRouter");
 const userRouter = require("./routers/userRouter");
 const dropDownRouter = require("./routers/dropDownRouter");
 const uploadRouter = require("./routers/uploadRouter");
-const functionalWordRouter = require("./routers/functionalWordRouter"); 
+const functionalWordRouter = require("./routers/functionalWordRouter");
 
 app.use(cors());
 
@@ -24,4 +28,3 @@ app.use("/api/v1/FunctionalWord", functionalWordRouter);
 app.listen(process.env.PORT, () => {
   console.log("server is waiting for requests");
 });
-
