@@ -26,12 +26,7 @@
       "version": 829,
       "versionNonce": 1929919973,
       "isDeleted": false,
-      "boundElements": [
-        {
-          "id": "FV6gLIJiIFKSPEVApLprY",
-          "type": "arrow"
-        }
-      ],
+      "boundElements": [],
       "updated": 1732846004274,
       "link": null,
       "locked": false,
@@ -1861,7 +1856,7 @@
       "x": -2554.153632757334,
       "y": -3806.338170088139,
       "width": 341.4596862792969,
-      "height": 250,
+      "height": 225,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -1875,8 +1870,8 @@
       "index": "b7U",
       "roundness": null,
       "seed": 1916324161,
-      "version": 731,
-      "versionNonce": 1795837771,
+      "version": 732,
+      "versionNonce": 102833116,
       "isDeleted": false,
       "boundElements": [
         {
@@ -1884,16 +1879,16 @@
           "type": "arrow"
         }
       ],
-      "updated": 1732851971368,
+      "updated": 1733013125193,
       "link": null,
       "locked": false,
-      "text": "diacritic {\n    word_with_diacritics: string,\n    other_forms: [diacritics]\n    phonetic_writing: string,\n    derivational_forms: [string]\n    morphological_balance: \n    root: string\n    linguistic_level\n    pronounciation: blob(audio),\n}",
+      "text": "diacritic {\n    word_with_diacritics: string,\n    phonetic_writing: string,\n    derivational_forms: [string]\n    morphological_balance: \n    root: string\n    linguistic_level\n    pronounciation: blob(audio),\n}",
       "fontSize": 20,
       "fontFamily": 5,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "diacritic {\n    word_with_diacritics: string,\n    other_forms: [diacritics]\n    phonetic_writing: string,\n    derivational_forms: [string]\n    morphological_balance: \n    root: string\n    linguistic_level\n    pronounciation: blob(audio),\n}",
+      "originalText": "diacritic {\n    word_with_diacritics: string,\n    phonetic_writing: string,\n    derivational_forms: [string]\n    morphological_balance: \n    root: string\n    linguistic_level\n    pronounciation: blob(audio),\n}",
       "autoResize": true,
       "lineHeight": 1.25
     },
