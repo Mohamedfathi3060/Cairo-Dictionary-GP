@@ -6,10 +6,6 @@ const diacritics = new Schema({
   // other_forms: [diacritics],
   phonetic_writing: String,
   pronounciation: String,
-  derivational_forms: [String],
-  morphological_balance: String,
-  root: String,
-  linguistic_level: String,
 });
 
 const collocate = new Schema({
@@ -21,6 +17,13 @@ const collocate = new Schema({
       source: String,
     },
   ],
+});
+
+const morphological_info = new Schema({
+  morphological_balance: String,
+  root: String,
+  linguistic_level: String,
+  derivational_forms: [String],
 });
 
 const meaning = new Schema({
@@ -58,6 +61,7 @@ const Verb = new Schema({
     unique: true,
   },
   diacritics: [diacritics],
+  morphological_info: morphological_info,
   semantic_info: [semantic_info],
   state: {
     type: String,
