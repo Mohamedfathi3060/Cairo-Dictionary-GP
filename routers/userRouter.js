@@ -48,10 +48,12 @@ router.patch("/time", async (req, res) => {
       { code: req.user },
       {
         $inc: { time_spent: time_spent },
-      }
+      },
+      { new: true }
     );
     res.json({
       message: "Time Updated",
+      new_time: user.time_spent,
     });
   } catch (error) {
     res.status(400).json({

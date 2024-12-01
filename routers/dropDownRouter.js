@@ -31,7 +31,6 @@ router.patch("/:name", async (req, res) => {
       },
       { new: true }
     );
-
     res.json({
       data: drop,
     });

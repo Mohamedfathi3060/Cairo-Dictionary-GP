@@ -42,16 +42,39 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+// router.post("/", async (req, res) => {
+//   try {
+//     const Word = await new wordModel(req.body);
+//     await Word.save();
+//     res.json({
+//       data: Word,
+//     });
+//   } catch (err) {
+//     res.json({
+//       error: err,
+//     });
+//   }
+// });
+
+router.put("/:ID", async (req, res) => {
   try {
-    const Word = await new wordModel(req.body);
-    await Word.save();
+    replacement = {
+      _id: req.params.ID,
+      ...req.body,
+    };
+    const newWord = await wordModel.findOneAndReplace(
+      { _id: req.params.ID },
+      replacement,
+      {
+        returnDocument: "after",
+      }
+    );
     res.json({
-      data: Word,
+      data: newWord,
     });
   } catch (err) {
     res.json({
-      error: err,
+      error: err.message,
     });
   }
 });
