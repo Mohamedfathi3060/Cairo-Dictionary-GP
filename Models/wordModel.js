@@ -60,7 +60,10 @@ const Word = new Schema({
     unique: true,
   },
   diacritics: [diacritics],
-  morphological_info: morphological_info,
+  morphological_info: {
+    type: morphological_info,
+    default: {},
+  },
   semantic_info: [semantic_info],
   state: {
     type: String,
