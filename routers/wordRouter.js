@@ -9,7 +9,7 @@ router.use(checkAuth);
 
 router.get("/:ID", async (req, res) => {
   try {
-    let word = await wordModel.findById(req.params.ID).exec();
+    let word = await wordModel.findById(req.params.ID);
     res.json({
       data: word,
     });
