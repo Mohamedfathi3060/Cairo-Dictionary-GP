@@ -8,18 +8,22 @@ dotenv.config({ path: './config.env' });
 require('./Models/DB_connection');
 
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+
 const wordRouter = require('./routers/wordRouter');
 const verbRouter = require('./routers/verbRouter');
 const userRouter = require('./routers/userRouter');
+const suggestedTermRouter = require('./routers/suggestTermRouter');
 const elasticRouter = require('./routers/elasticRouter');
 const dropDownRouter = require('./routers/dropDownRouter');
 const verbDropDownRouter = require('./routers/verbDropDownRouter');
 const uploadRouter = require('./routers/uploadRouter');
-const VerbModel = require('./Models/verbModel');
+const geminiRouter = require('./routers/geminiRouter');
 
 const functionalWordRouter = require('./routers/functionalWordRouter');
 
 app.use(cors());
+app.use(cookieParser());
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -36,6 +40,8 @@ app.use('/api/v1/verbDropDown', verbDropDownRouter);
 app.use('/api/v1/upload', uploadRouter);
 
 app.use('/api/v1/search', elasticRouter);
+app.use('/api/v1/term-generation', suggestedTermRouter);
+app.use('/api/v1/text-correction', geminiRouter);
 
 app.listen(process.env.PORT, () => {
   console.log('server is waiting for requests');
