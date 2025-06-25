@@ -16,7 +16,7 @@ const fingerPrint = async (req, res, next) => {
     res.cookie('fingerprint', id, {
       maxAge: process.env.fingerprint_EXP_PERIOD,
       httpOnly: true,
-      secure: false,
+      secure: true,
     });
     req.cookies.fingerprint = id;
   }
