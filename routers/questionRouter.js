@@ -2,6 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Question = require('../Models/questionModel');
 
+const shuffleArray = (array) => {
+  return array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+};
+
 router.get('/', async (req, res) => {
   const size = parseInt(req.query.size) || 10;
   const filter = {};
@@ -13,9 +20,14 @@ router.get('/', async (req, res) => {
     { $project: { options: 1, image: 1, question: 1 } },
   ]);
 
+  const shuffled = questions.map((q) => ({
+    ...q,
+    options: shuffleArray(q.options),
+  }));
+
   res.json({
     status: 'success',
-    data: questions,
+    data: shuffled,
   });
 });
 
