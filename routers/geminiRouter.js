@@ -4,10 +4,32 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
-const instructionPrompt = `
-انت خبير في اللغة العربية. سأعطيك جملة باللغة العربية، 
-وأريد منك تصحيحها لغويًا وإضافة التشكيل الصحيح لها. 
-أرجو أن تعيد الجملة فقط بعد التصحيح والتشكيل، بدون أي شرح.
+// const instructionPrompt = `
+// انت خبير في اللغة العربية. سأعطيك جملة باللغة العربية،
+// وأريد منك تصحيحها لغويًا وإضافة التشكيل الصحيح لها.
+// أرجو أن تعيد الجملة فقط بعد التصحيح والتشكيل، بدون أي شرح.
+// `;
+const instructionPrompt = `أنت خبير في اللغة العربية. سأعطيك جملة باللغة العربية، وأريد منك تصحيحها لغويًا وإضافة التشكيل الصحيح لها.
+
+أعد لي الجواب بصيغة JSON يحتوي على 3 أشياء فقط:
+1. "corrected": الجملة بعد التصحيح والتشكيل الكامل.
+2. "deleted": الكلمة أو الكلمات التي حُذِفت (إن وُجدت).
+3. "changes":   الكلمات المتعدلة قبل و بعد التعديل (بدون اعتبار التشكيل في المقارنة).
+مثال
+{
+    "corrected": "الجملة بعد التعديل",
+    "deleted":["محذوف1"  , "محذوف2"],
+    "changes": [
+        {
+            "before": "قبل",
+            "after": "بعد"
+        },
+        {
+            "before": "قبل",
+            "after": "بعد"
+        }
+    ]
+}
 `;
 
 router.post('/', async (req, res) => {
@@ -27,12 +49,11 @@ router.post('/', async (req, res) => {
     const response = await result.response;
     const correctedText = response.text().trim();
 
-    res.json({
-      status: 'success',
-      data: {
-        corrected: correctedText,
-      },
-    });
+    const raw = correctedText;
+
+    const cleaned = raw.replace(/^```json\s*/, '').replace(/```$/, '');
+    res.set('Content-Type', 'application/json');
+    res.send(cleaned);
   } catch (error) {
     console.error('Error correcting Arabic text:', error);
     res.status(500).json({
