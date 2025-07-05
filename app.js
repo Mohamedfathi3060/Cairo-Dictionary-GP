@@ -23,8 +23,8 @@ const questionRouter = require('./routers/questionRouter');
 const functionalWordRouter = require('./routers/functionalWordRouter');
 
 const allowedOrigins = [
+  'https://cairodictionaryv2-git-main-moazs-projects-de2486f1.vercel.app',
   'http://localhost:3000',
-  'https://cairodictionaryv2-git-main-moazs-projects-de2486f1.vercel.app/',
 ];
 
 app.use(
