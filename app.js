@@ -22,9 +22,20 @@ const geminiRouter = require('./routers/geminiRouter');
 const questionRouter = require('./routers/questionRouter');
 const functionalWordRouter = require('./routers/functionalWordRouter');
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://cairodictionaryv2-git-main-moazs-projects-de2486f1.vercel.app/',
+];
+
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   })
 );
